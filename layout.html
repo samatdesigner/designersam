@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphics Designs</title>
+    <link rel="shortcut icon" href="resourcess/logo.png" type="image/x-icon">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #F5F1E6;
+            font-family: 'Poppins', sans-serif;
+        }
+        header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #1a0022;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  height: 70px;
+  max-width: 100%;
+}
+
+.logo img {
+  height: 160px;
+  max-width: 100%;
+  object-fit: contain;
+  margin-top: 10px;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  font-size: 17px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #c300ff;
+}
+        /* Animation for grid fade-in */
+        .grid {
+            animation: fadeIn 1.2s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        /* Animation for box hover */
+        .box {
+            border: 4px solid rgb(255, 255, 255);
+            border-radius: 2px;
+            width: 100%;
+            height: 330px;
+            text-align: center;
+            align-content: end;
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s, opacity 0.6s;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+        .box.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s, transform 0.6s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+        }
+        .box:not(.visible) {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.6s, transform 0.6s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+        }
+        .div1{
+            background-color: rgba(255, 97, 97, 0);
+            margin-top: 45px; /* Increased for header gap */
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            align-content: end;
+            
+            
+
+        }
+
+        .div1 h1{
+            color: rgb(157, 0, 0);
+            font-size: 40px;
+            margin-top:  40px;
+            font-weight: 900;
+        }
+
+        .grid{
+            background-color: rgba(100, 148, 237, 0);
+            display: grid;
+            column-gap: 20px;
+            row-gap: 15px;
+            width: 60%;
+            height: 100%;
+            grid-template-columns: repeat(3, auto);
+            padding: 20px;
+            margin-top: 40px;
+            
+        }
+        /* Responsive grid for mobile */
+        @media (max-width: 900px) {
+            .grid {
+                width: 95%;
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+            .box {
+                height: 220px;
+            }
+        }
+        .box:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            z-index: 2;
+        }
+        #box1{
+            background-image: url(resourcess/thum1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            grid-area: 1/1/3/3;
+        }
+
+        #box2{
+            background-image: url(resourcess/thum2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            
+        }
+        #box3{
+            background-image: url(resourcess/thum3.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            grid-column: 1/2;
+        }
+       #box4{
+            background-image: url(resourcess/thum4.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            grid-column: 2/4;
+            
+       }
+        
+       #box5{
+            background-image: url(resourcess/thum6.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            grid-column: 1/3;
+            
+       }
+        #box6{
+            background-image: url(resourcess/thum5.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: yellow;
+            
+            
+        }
+          #box7{
+            background-image: url(resourcess/thum8.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+         #box8{
+            background-image: url(resourcess/thum7.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            grid-column: 2/4;
+        }
+           #box9{
+            background-image: url(resourcess/thum9.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            grid-column: 1/3;
+        }
+        #box10{
+            background-image: url(resourcess/thum10.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+          #box11{
+            background-image: url(resourcess/kabaddi.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        #box12{
+            background-image: url(resourcess/thum11.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            grid-column: 2/4;
+        }
+        #box13{
+            background-image: url(resourcess/thum13.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            grid-column: 1/3;
+        }
+        #box14{
+            background-color: yellow;
+        }
+        #box15{
+            background-color: yellow;
+            
+            
+       }
+       #box16{
+            background-color: aquamarine;
+            grid-column: 2/4;
+            
+       }
+       .btn{
+            margin-top: 20px;
+            padding: 20px 30px;
+            background-color: rgba(240, 128, 128, 0);
+            border: none;
+            width: 100%;
+            display: flex;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 40px;
+            
+        }
+        #drive{
+            background-color:rgb(255, 255, 255);
+            padding: 10px 30px;
+            border-radius: 2px;
+            border: none;
+            color: rgb(0, 0, 0);
+            font-weight: bolder;
+        }
+        #back{
+            background-color:rgb(255, 255, 255);
+            padding: 10px 40px;
+            border-radius: 2px;
+            border: none;
+            color: rgb(0, 0, 0);
+            font-weight: bolder;
+        }
+        #back:hover, #drive:hover{
+            background-color: rgb(29, 0, 0);
+            color: rgb(255, 255, 255);
+            transition: all 0.3s ease-in-out;
+        }
+        .box p{
+            color: rgb(28, 0, 0);
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            align-content: center;
+            font-weight: bold;
+        }
+        /* Music Player Styles */
+        #music-player {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            background: #23232300;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0);
+            padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+            gap: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.2s, box-shadow 0.2s;
+            min-width: 3.2rem;
+            min-height: 2.6rem;
+        }
+        #music-toggle {
+            background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            width: 2.4rem;
+            height: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgb(204, 1, 1);
+            transition: background 0.2s, transform 0.15s;
+        }
+        #music-toggle:hover {
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            transform: scale(1.08);
+        }
+        #music-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            font-size: 1.3em;
+            transition: color 0.2s;
+            filter: drop-shadow(0 1px 2px #0006);
+        }
+        #music-icon svg {
+            display: block;
+            margin: auto;
+        }
+        footer {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+  background: #181818;
+  color: #fff;
+  margin-top: 3rem;
+}
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Beautiful scroll up/down animation for .box elements, repeatable
+            const boxes = document.querySelectorAll('.box');
+            function revealOnScroll() {
+                const triggerBottom = window.innerHeight * 0.92;
+                boxes.forEach(box => {
+                    const boxTop = box.getBoundingClientRect().top;
+                    if (boxTop < triggerBottom && boxTop > 0) {
+                        box.classList.add('visible');
+                    } else {
+                        box.classList.remove('visible');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            window.addEventListener('resize', revealOnScroll);
+            revealOnScroll();
+
+            // Music Player Logic (shared across all pages)
+            const musicAudio = document.getElementById('music-audio');
+            const musicToggle = document.getElementById('music-toggle');
+            const musicIcon = document.getElementById('music-icon');
+            let isPlaying = false;
+
+            const speakerSVG = `<svg id="icon-speaker" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><path d="M9 7H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4l5 4V3l-5 4z"/></svg>`;
+            const pauseSVG = `<svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><rect x="4" y="4" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="12" rx="1"/></svg>`;
+
+            // Set initial icon on load
+            musicIcon.innerHTML = speakerSVG;
+
+            function setMusicState(state) {
+              localStorage.setItem('music-playing', state ? '1' : '0');
+            }
+            function getMusicState() {
+              return localStorage.getItem('music-playing') === '1';
+            }
+            function setMusicTime(time) {
+              localStorage.setItem('music-time', time);
+            }
+            function getMusicTime() {
+              return parseFloat(localStorage.getItem('music-time') || '0');
+            }
+
+            // Restore music state and time on load
+            if (getMusicState()) {
+              const savedTime = getMusicTime();
+              if (!isNaN(savedTime) && savedTime > 0) {
+                musicAudio.currentTime = savedTime;
+              }
+              musicAudio.play().catch(() => {});
+            }
+
+            musicToggle.addEventListener('click', function() {
+              if (isPlaying) {
+                musicAudio.pause();
+              } else {
+                musicAudio.play();
+              }
+            });
+
+            musicAudio.addEventListener('play', function() {
+              isPlaying = true;
+              musicIcon.innerHTML = pauseSVG;
+              musicToggle.setAttribute('aria-label', 'Pause music');
+              setMusicState(true);
+            });
+
+            musicAudio.addEventListener('pause', function() {
+              isPlaying = false;
+              musicIcon.innerHTML = speakerSVG;
+              musicToggle.setAttribute('aria-label', 'Play music');
+              setMusicState(false);
+              setMusicTime(musicAudio.currentTime);
+            });
+
+            // Save time on page unload
+            window.addEventListener('beforeunload', function() {
+              setMusicTime(musicAudio.currentTime);
+            });
+
+            window.addEventListener('blur', () => {
+              if (!musicAudio.paused) musicAudio.pause();
+              setMusicTime(musicAudio.currentTime);
+            });
+        });
+    </script>
+</head>
+<body>
+        <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="/public/images/sanu.png" alt="logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="project.html">Projects</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about">About me</a></li>
+      </ul>
+    </nav>
+  </header>
+ <div class="div1"> <h1>Graphic Designs</h1></div>
+     <div class="grid">
+         <div class="box" id="box1"><p>Card</p></div>
+         <div class="box" id="box2"><p>Card</p></div>
+         <div class="box" id="box3"><p>Poster</p></div>
+         <div class="box" id="box4"><p>Music Thum</p></div>
+         <div class="box" id="box5"><p>Video Thum</p></div>
+         <div class="box" id="box6"><p>Card</p></div>
+         <div class="box" id="box7"><p>Card</p></div>
+         <div class="box" id="box8"><p>Gaming Thum</p></div>
+         <div class="box" id="box9"><p>Gaming Thum</p></div>
+         <div class="box" id="box10"><p>Wedding Card</p></div>
+         <div class="box" id="box11"><p>Kabaddi Post</p></div>
+         <div class="box" id="box12"><p>Gaming Thum</p></div>
+         <div class="box" id="box13"><p>Thumbnail</p></div>
+         <div class="box" id="box14">box14</div>
+         <div class="box" id="box15">box15</div>
+         <div class="box" id="box16">box16</div>
+     </div>
+     <div class="btn"> 
+        <button id="drive" type="button" onclick="window.open('https://drive.google.com/drive/u/3/folders/1YmO4c6FMmLG4CbZTkQR8QdrXaR-0yjqY', '_blank')">Visit My Drive</button>
+        <button id="back" type="button" onclick="window.location.href='index.html'">Go To Back</button>
+    </div>
+     <!-- Footer with Instagram and WhatsApp -->
+  <footer class="footer">
+    <div style="display: flex; justify-content: center; gap: 2rem; align-items: center;">
+      <a href="https://instagram.com/" target="_blank" rel="noopener" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg width="100%" height="28" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 1.7 353.3 0C317.8-1.7 130.2-1.7 94.7 0 59.4 1.7 28 9.9 1.7 36.2S1.7 123.4 0 158.7c-1.7 35.3-1.7 222.9 0 258.2 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c35.3 1.7 222.9 1.7 258.2 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 1.7-222.9 0-258.2zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.2-9 132.3-9s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/" target="_blank" rel="noopener" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg width="100%" height="28" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339-3.6 221.7-35.3 132.7 26.6c-89 61.9-120.7 179.2-58.8 268.2l-26.2 94.6c-3.5 12.7 8.4 24.6 21.1 21.1l94.6-26.2c89 61.9 206.3 30.2 268.2-58.8 61.9-89 30.2-206.3-58.8-268.2zm-163.7 319.8c-35.3 0-69.7-10.3-98.7-29.7l-6.9-4.5-56.2 15.6 15.6-56.2-4.5-6.9c-19.4-29-29.7-63.4-29.7-98.7 0-104.9 85.1-190 190-190 104.9 0 190 85.1 190 190 0 104.9-85.1 190-190 190zm104.7-138.6c-5.7-2.9-33.8-16.7-39-18.6-5.2-1.9-9-2.9-12.9 2.9-3.8 5.7-14.8 18.6-18.1 22.4-3.3 3.8-6.7 4.3-12.4 1.4-33.8-16.7-56-29.8-78.4-67.2-5.9-10.1 5.9-9.4 16.7-31.3 1.9-3.8.9-7.1-.5-10-1.4-2.9-12.9-31-17.7-42.5-4.7-11.3-9.5-9.7-12.9-9.9-3.3-.2-7.1-.2-10.9-.2s-10 1.4-15.2 7.1c-5.2 5.7-19.8 19.3-19.8 47.1 0 27.8 20.3 54.7 23.1 58.5 2.8 3.8 39.8 60.7 96.6 82.7 13.5 5.2 24 8.3 32.2 10.6 13.5 3.8 25.8 3.3 35.5 2 10.8-1.5 33.8-13.8 38.6-27.1 4.8-13.3 4.8-24.7 3.3-27.1-1.4-2.4-5.2-3.8-10.9-6.7z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div style="margin-top: 1rem; font-size: 0.95em; opacity: 0.7;">
+      &copy; 2024 Sam - Designer & Editor
+    </div>
+  </footer>
+
+    <!-- Music Player: Bottom Right -->
+    <div id="music-player">
+      <button id="music-toggle" aria-label="Play music">
+        <span id="music-icon" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+          <svg id="icon-speaker" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 7H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4l5 4V3l-5 4z"/>
+          </svg>
+        </span>
+      </button>
+      <audio id="music-audio" src="resourcess/samat.mp3" loop></audio>
+    </div>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sam - Designer & Editor</title>
+  <link rel="shortcut icon" href="resourcess/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px) scale(0.98);
+      transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    /* Optional: add a little stagger for cards */
+    .mainbox .card.reveal {
+      transition-delay: 0.1s;
+    }
+    .mainbox .card.reveal.active:nth-child(2) { transition-delay: 0.2s; }
+    .mainbox .card.reveal.active:nth-child(3) { transition-delay: 0.3s; }
+
+    /* Popup Styles */
+    .popup-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup-container.active {
+    display: flex;
+    animation: popup-fadein 0.35s cubic-bezier(.77,0,.18,1);
+  }
+  .popup-box {
+    /* ...existing styles... */
+    opacity: 0;
+    transform: scale(0.92) translateY(40px);
+    transition: opacity 0.35s cubic-bezier(.77,0,.18,1), transform 0.35s cubic-bezier(.77,0,.18,1);
+  }
+  .popup-container.active .popup-box {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition-delay: 0.08s;
+  }
+  @keyframes popup-fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Music Player Styles: Bottom Right, Modern UI */
+  #music-player {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    background: #23232300;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0);
+    padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+    gap: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s, box-shadow 0.2s;
+    min-width: 3.2rem;
+    min-height: 2.6rem;
+  }
+  #music-toggle {
+    background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgb(204, 1, 1);
+    transition: background 0.2s, transform 0.15s;
+  }
+  #music-toggle:hover {
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+    transform: scale(1.08);
+  }
+  #music-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-size: 1.3em;
+    transition: color 0.2s;
+    filter: drop-shadow(0 1px 2px #0006);
+  }
+  #music-icon svg {
+    display: block;
+    margin: auto;
+  }
+  </style>
+</head>
+<body>
+
+
+
+
+  <div class="cursor-glow"></div>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="resourcess/sanu.png" alt="logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a class="active" href="#home">Home</a></li>
+
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+
+        <li><a href="#about">About me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero reveal" id="home">
+    <div class="hero-content">
+      <h2>Hey, I’m <strong>Sam</strong></h2>
+      <h1><strong>Designer & Editor</strong></h1>
+      <p>A <span class="highlight">Creative Designer</span> From Yavatmal - 445102</p>
+      <div class="buttons">
+        <a href="#" class="btn">Hire Me</a>
+        <a href="#" class="btn">My Works</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="main" id="services">
+    <h2 class="reveal">What I do ?</h2>
+    <p class="sub reveal">Powerful visuals, Cleane code, Creative edits.</p>
+
+    <div class="box1">
+      <div class="mainbox">
+        <div class="card ">
+          <h3>UX-UI Designer</h3>
+          <h4>Website Designing Or App Designing</h4>
+          <p>I design responsive, user-friendly website and app UI designs that look great and work smoothly on all devices and dekstop.</p>
+          <a href="project.html">See More»</a>
+        </div>
+        <div class="card ">
+          <h3>Graphics Designs</h3>
+          <h4>Logos, Posters, Banner And Thumbnails Designing</h4>
+          <p>Designing unique, professional graphics that boost your brand identity and catch the viewer’s attention instantly.</p>
+          <a href="layout.html">See More»</a>
+        </div>
+        <div class="card ">
+          <h3>Video Editings</h3>
+          <h4>Shorts and Youtube Videos Editing</h4>
+          <p>Creating sharp, dynamic videos with perfect cuts, cinematic color grading or music, and effects — tailored for impact and engagement.</p>
+          <a href="#">See More»</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal"><strong>930+</strong><br>Projects</div>
+      <div class="stat reveal"><strong>465+</strong><br>Clients</div>
+      <div class="stat reveal"><strong>256+</strong><br>Completed</div>
+      <div class="stat reveal"><strong>432+</strong><br>Upcoming</div>
+    </div>
+  </div>
+  <section class="expertise-section reveal">
+  <h2 class="section-title">Experties</h2>
+  <div class="expertise-cards">
+    
+    <!-- Web Skills Card -->
+    <div class="expertise-card">
+      <div class="skill-icons">
+        <img src="resourcess/html.jpg" alt="HTML">
+        <img src="resourcess/cs.jpg" alt="CSS">
+        <img src="resourcess/js.jpg" alt="JavaScript">
+      </div>
+      <p>
+        I build modern, responsive, and interactive web experiences with
+        HTML, CSS, and JavaScript clean code, stunning visuals, and smooth functionality.
+      </p>
+      <div class="star-rating">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span class="dim">★</span>
+      </div>
+    </div>
+
+    <!-- Design Tools Card -->
+    <div class="expertise-card">
+      <div class="skill-icons">
+        <img src="resourcess/ps.jpg" alt="Photoshop">
+        <img src="resourcess/pr.jpg" alt="Premiere Pro">
+        <img src="resourcess/fb.jpg" alt="Figma">
+      </div>
+      <p>
+        I don’t just use tools — I master them. Photoshop, Premiere Pro, and Figma are part of my daily workflow to deliver top-tier results
+      </p>
+      <div class="star-rating">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span class="dim">★</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="about-section reveal" id="about">
+  <div class="about-container">
+    
+    <!-- Left: Image -->
+    <div class="about-img">
+      <img src="resourcess/samat.jpg" alt="Samat Photo">
+      
+    </div>
+
+    <!-- Right: Text -->
+    <div class="about-text">
+      <h3>About Me</h3>
+      <h2>Hey there, I’m <strong>Samat</strong></h2>
+      <p class="roles">UI/UX Designer | Web Designer | Video Editor</p>
+      <p>
+        I’m a passionate Computer Science student with a creative spark and a deep love for digital design.
+        With 3+ years of experience in graphics & video editing and 2+ years in UI/UX and web design,
+        I bring ideas to life through visually striking, user-focused experiences.
+      </p>
+      <p>
+        My designs aren’t just made to look good — they’re made to connect, inspire, and engage.
+        Whether it’s a bold brand identity, a smooth user interface, or a scroll-stopping video,
+        I always aim to deliver work that feels fresh, unique, and purpose-driven.
+      </p>
+      <a href="#" class="contact-btn">Contact Me</a>
+    </div>
+  </div>
+</section>
+<!-- Contact Me Popup -->
+<div id="popup" class="popup-container">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePopup()">✖</span>
+    <div class="popup-left">
+      <h2>Let’s discuss on<br>something <span class="cool">cool</span><br>together</h2>
+      <p>📞 +917620314575</p>
+      <p>📧 samatchavhan17@gmail.com</p>
+      <p>📍 Yavatmal - 445102</p>
+      <a href="#"> <img src="g.png" alt=""></a>
+      <a href="https://www.instagram.com/leal_s_xx9?igsh=MTMyNDh0YWFoa3g5ZQ=="> <img src="insta.png" alt=""></a>
+      <a href="#"> <img src="w.png" alt=""></a>
+    </div>
+    <div class="popup-right">
+      <h2>Contact me</h2>
+      <input type="text" placeholder="Your name" />
+      <input type="email" placeholder="Your Gmail" />
+      <textarea placeholder="Message"></textarea>
+      <button class="send-btn">Send me</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Footer with Instagram and WhatsApp -->
+  <footer style="padding: 2rem 0; text-align: center; background: #181818; color: #fff; margin-top: 3rem;">
+    <div style="display: flex; justify-content: center; gap: 2rem; align-items: center;">
+      <a href="https://instagram.com/" target="_blank" rel="noopener" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg width="28" height="28" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 1.7 353.3 0C317.8-1.7 130.2-1.7 94.7 0 59.4 1.7 28 9.9 1.7 36.2S1.7 123.4 0 158.7c-1.7 35.3-1.7 222.9 0 258.2 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c35.3 1.7 222.9 1.7 258.2 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 1.7-222.9 0-258.2zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.2-9 132.3-9s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/" target="_blank" rel="noopener" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg width="28" height="28" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339-3.6 221.7-35.3 132.7 26.6c-89 61.9-120.7 179.2-58.8 268.2l-26.2 94.6c-3.5 12.7 8.4 24.6 21.1 21.1l94.6-26.2c89 61.9 206.3 30.2 268.2-58.8 61.9-89 30.2-206.3-58.8-268.2zm-163.7 319.8c-35.3 0-69.7-10.3-98.7-29.7l-6.9-4.5-56.2 15.6 15.6-56.2-4.5-6.9c-19.4-29-29.7-63.4-29.7-98.7 0-104.9 85.1-190 190-190 104.9 0 190 85.1 190 190 0 104.9-85.1 190-190 190zm104.7-138.6c-5.7-2.9-33.8-16.7-39-18.6-5.2-1.9-9-2.9-12.9 2.9-3.8 5.7-14.8 18.6-18.1 22.4-3.3 3.8-6.7 4.3-12.4 1.4-33.8-16.7-56-29.8-78.4-67.2-5.9-10.1 5.9-9.4 16.7-31.3 1.9-3.8.9-7.1-.5-10-1.4-2.9-12.9-31-17.7-42.5-4.7-11.3-9.5-9.7-12.9-9.9-3.3-.2-7.1-.2-10.9-.2s-10 1.4-15.2 7.1c-5.2 5.7-19.8 19.3-19.8 47.1 0 27.8 20.3 54.7 23.1 58.5 2.8 3.8 39.8 60.7 96.6 82.7 13.5 5.2 24 8.3 32.2 10.6 13.5 3.8 25.8 3.3 35.5 2 10.8-1.5 33.8-13.8 38.6-27.1 4.8-13.3 4.8-24.7 3.3-27.1-1.4-2.4-5.2-3.8-10.9-6.7z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div style="margin-top: 1rem; font-size: 0.95em; opacity: 0.7;">
+      &copy; 2024 Sam - Designer & Editor
+    </div>
+  </footer>
+  
+<!-- Music Player: Bottom Right -->
+<div id="music-player">
+  <button id="music-toggle" aria-label="Play music">
+    <span id="music-icon" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+      <svg id="icon-speaker" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20" style="display:block; margin:auto;"><path d="M9 7H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4l5 4V3l-5 4z"/></svg>
+    </span>
+  </button>
+  <audio id="music-audio" src="resourcess/samat.mp3" loop></audio>
+</div>
+
+<script>
+  // Cursor Glow
+  const glow = document.querySelector(".cursor-glow");
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
+
+  function animateGlow() {
+    currentX += (mouseX - currentX) * 0.08;
+    currentY += (mouseY - currentY) * 0.08;
+    glow.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+    requestAnimationFrame(animateGlow);
+  }
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  animateGlow();
+
+  // Scroll Animation
+  const revealElements = document.querySelectorAll(".reveal");
+  function handleReveal() {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleReveal);
+  window.addEventListener("load", handleReveal);
+
+  // ScrollSpy Navbar Highlight
+  const sections = Array.from(document.querySelectorAll("section[id], .main[id]"));
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  function updateActiveNav() {
+    let current = "";
+    let minDist = Infinity;
+
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      // Use a larger threshold so the nav highlights earlier
+      if (sectionTop <= 200 && Math.abs(sectionTop) < minDist) {
+        minDist = Math.abs(sectionTop);
+        current = section.getAttribute("id");
+      }
+    });
+
+    // If at the bottom of the page, highlight the last section
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+      const lastSection = sections[sections.length - 1];
+      if (lastSection) current = lastSection.getAttribute("id");
+    }
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#") && href.length > 1) {
+        link.classList.toggle("active", current && href === `#${current}`);
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveNav);
+  window.addEventListener("load", updateActiveNav);
+
+  // Music Player Logic
+  const musicAudio = document.getElementById('music-audio');
+  const musicToggle = document.getElementById('music-toggle');
+  const musicIcon = document.getElementById('music-icon');
+  let isPlaying = false;
+
+  const speakerSVG = `<svg id="icon-speaker" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20" style="display:block; margin:auto;"><path d="M9 7H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4l5 4V3l-5 4z"/></svg>`;
+  const pauseSVG = `<svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20" style="display:block; margin:auto;"><rect x="4" y="4" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="12" rx="1"/></svg>`;
+
+  // Always show play icon on load
+  musicIcon.innerHTML = speakerSVG;
+
+  // Persist music state and time across pages using localStorage
+  function setMusicState(state) {
+    localStorage.setItem('music-playing', state ? '1' : '0');
+  }
+  function getMusicState() {
+    return localStorage.getItem('music-playing') === '1';
+  }
+  function setMusicTime(time) {
+    localStorage.setItem('music-time', time);
+  }
+  function getMusicTime() {
+    return parseFloat(localStorage.getItem('music-time') || '0');
+  }
+
+  // On load, restore music state and time
+  window.addEventListener('DOMContentLoaded', () => {
+    musicIcon.innerHTML = speakerSVG;
+    if (getMusicState()) {
+      const savedTime = getMusicTime();
+      if (!isNaN(savedTime) && savedTime > 0) {
+        musicAudio.currentTime = savedTime;
+      }
+      musicAudio.play().catch(() => {});
+    }
+  });
+
+  musicToggle.addEventListener('click', function() {
+    if (isPlaying) {
+      musicAudio.pause();
+    } else {
+      musicAudio.play();
+    }
+  });
+
+  musicAudio.addEventListener('play', function() {
+    isPlaying = true;
+    musicIcon.innerHTML = pauseSVG;
+    musicToggle.setAttribute('aria-label', 'Pause music');
+    setMusicState(true);
+  });
+
+  musicAudio.addEventListener('pause', function() {
+    isPlaying = false;
+    musicIcon.innerHTML = speakerSVG;
+    musicToggle.setAttribute('aria-label', 'Play music');
+    setMusicState(false);
+    setMusicTime(musicAudio.currentTime);
+  });
+
+  // Save time on page unload
+  window.addEventListener('beforeunload', function() {
+    setMusicTime(musicAudio.currentTime);
+  });
+
+  // Optional: Pause music when navigating away and save time
+  window.addEventListener('blur', () => {
+    if (!musicAudio.paused) musicAudio.pause();
+    setMusicTime(musicAudio.currentTime);
+  });
+
+  // On other pages (e.g., projects.html, layout.html), use the same code block above
+  // and ensure the <audio id="music-audio" src="samat.mp3" loop></audio> is present.
+</script>
+
+<script>
+  const popup = document.getElementById("popup");
+
+  function openPopup() {
+    popup.classList.add("active");
+    // Animate popup box
+    const box = popup.querySelector('.popup-box');
+    box.style.opacity = '0';
+    box.style.transform = 'scale(0.92) translateY(40px)';
+    setTimeout(() => {
+      box.style.opacity = '';
+      box.style.transform = '';
+    }, 10);
+  }
+  function closePopup() {
+    popup.classList.remove("active");
+  }
+
+  // Open on Contact button click
+  const contactBtn = document.querySelector(".contact-btn");
+  contactBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    openPopup();
+  });
+
+  // Close when clicking outside the popup-box
+  window.addEventListener("click", function(e) {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+</script>
+
+  
+
+</body>
+</html>
+</html>
+</body>
+</html>
+</html>

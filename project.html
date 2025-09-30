@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects/designer Sam</title>
+    <link rel="shortcut icon" href="resourcess/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="project.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+      /* Animation for project cards */
+      .project-card {
+        opacity: 0;
+        transform: translateY(60px) scale(0.98);
+        transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+        will-change: opacity, transform;
+      }
+      .project-card.animated {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      .project-card.reverse {
+        /* Optional: stagger effect for reverse cards */
+        transition-delay: 0.15s;
+      }
+
+      #music-player {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 1200;
+        display: flex;
+        align-items: center;
+        background: #23232300;
+        border-radius: 1.5rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0);
+        padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+        gap: 0.5rem;
+        font-family: 'Poppins', sans-serif;
+        transition: background 0.2s, box-shadow 0.2s;
+        min-width: 3.2rem;
+        min-height: 2.6rem;
+      }
+      #music-toggle {
+        background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        width: 2.4rem;
+        height: 2.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.4rem;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgb(204, 1, 1);
+        transition: background 0.2s, transform 0.15s;
+      }
+      #music-toggle:hover {
+        background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+        transform: scale(1.08);
+      }
+      #music-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        font-size: 1.3em;
+        transition: color 0.2s;
+        filter: drop-shadow(0 1px 2px #0006);
+      }
+      #music-icon svg {
+        display: block;
+        margin: auto;
+      }
+    </style>
+</head>
+<body>
+     <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="resourcess/sanu.png" alt="logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="#projects">Projects</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about">About me</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="projects-section">
+    <div class="project-card">
+      <img src="resourcess/spiderui.png" alt="Project Image">
+      <div class="project-info">
+        <h3>Beautifull & Morden Login UI Page</h3>
+        <p>
+          Implemented a user-friendly login interface with modern UI elements and form validation for enhanced user experience.
+        </p>
+        <a href="http://127.0.0.1:5501/samatlogin.html" class="project-btn">Check out</a>
+      </div>
+    </div>
+    <div class="project-card reverse">
+      <img src="resourcess/quiz.png" alt="Project Image">
+      <div class="project-info">
+        <h3>Easy Quiz Web App</h3>
+        <p>
+          The quiz web app features a modern UI, real-time scoring, a timer, and randomized questions for a dynamic learning experience.
+        </p>
+        <a href="https://samat2913.github.io/samatraj/" class="project-btn">Check out</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="resourcess/cal.png"Project Image">
+      <div class="project-info">
+        <h3>Basic Calculator </h3>
+        <p>
+          SmartCalc is a lightweight and modern calculator app that performs basic arithmetic operations with a clean UI and smooth performance. Perfect for daily use.
+        </p>
+        <a href="samatlogin.html" class="project-btn">Check out</a>
+      </div>
+    </div>
+  </section>
+   <!-- Footer with Instagram and WhatsApp -->
+  <footer style="padding: 2rem 0; text-align: center; background: #181818; color: #fff; margin-top: 3rem;">
+    <div style="display: flex; justify-content: center; gap: 2rem; align-items: center;">
+      <a href="https://instagram.com/" target="_blank" rel="noopener" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg width="28" height="28" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 1.7 353.3 0C317.8-1.7 130.2-1.7 94.7 0 59.4 1.7 28 9.9 1.7 36.2S1.7 123.4 0 158.7c-1.7 35.3-1.7 222.9 0 258.2 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c35.3 1.7 222.9 1.7 258.2 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 1.7-222.9 0-258.2zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.2-9 132.3-9s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/" target="_blank" rel="noopener" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg width="28" height="28" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339-3.6 221.7-35.3 132.7 26.6c-89 61.9-120.7 179.2-58.8 268.2l-26.2 94.6c-3.5 12.7 8.4 24.6 21.1 21.1l94.6-26.2c89 61.9 206.3 30.2 268.2-58.8 61.9-89 30.2-206.3-58.8-268.2zm-163.7 319.8c-35.3 0-69.7-10.3-98.7-29.7l-6.9-4.5-56.2 15.6 15.6-56.2-4.5-6.9c-19.4-29-29.7-63.4-29.7-98.7 0-104.9 85.1-190 190-190 104.9 0 190 85.1 190 190 0 104.9-85.1 190-190 190zm104.7-138.6c-5.7-2.9-33.8-16.7-39-18.6-5.2-1.9-9-2.9-12.9 2.9-3.8 5.7-14.8 18.6-18.1 22.4-3.3 3.8-6.7 4.3-12.4 1.4-33.8-16.7-56-29.8-78.4-67.2-5.9-10.1 5.9-9.4 16.7-31.3 1.9-3.8.9-7.1-.5-10-1.4-2.9-12.9-31-17.7-42.5-4.7-11.3-9.5-9.7-12.9-9.9-3.3-.2-7.1-.2-10.9-.2s-10 1.4-15.2 7.1c-5.2 5.7-19.8 19.3-19.8 47.1 0 27.8 20.3 54.7 23.1 58.5 2.8 3.8 39.8 60.7 96.6 82.7 13.5 5.2 24 8.3 32.2 10.6 13.5 3.8 25.8 3.3 35.5 2 10.8-1.5 33.8-13.8 38.6-27.1 4.8-13.3 4.8-24.7 3.3-27.1-1.4-2.4-5.2-3.8-10.9-6.7z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div style="margin-top: 1rem; font-size: 0.95em; opacity: 0.7;">
+      &copy; 2024 Sam - Designer & Editor
+    </div>
+  </footer>
+  <!-- Music Player: Bottom Right -->
+  <div id="music-player">
+    <button id="music-toggle" aria-label="Play music">
+      <span id="music-icon" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+        <!-- The SVG icon will be set dynamically by JS, so remove the static SVG to avoid double icons -->
+      </span>
+    </button>
+    <audio id="music-audio" src="resourcess/samat.mp3" loop></audio>
+  </div>
+  <script>
+    // Animate project cards when they enter the viewport using Intersection Observer
+    document.addEventListener("DOMContentLoaded", function() {
+      const cards = document.querySelectorAll('.project-card');
+      const observer = new window.IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animated');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15
+        }
+      );
+      cards.forEach(card => observer.observe(card));
+
+      // Music Player Logic (shared across all pages)
+      const musicAudio = document.getElementById('music-audio');
+      const musicToggle = document.getElementById('music-toggle');
+      const musicIcon = document.getElementById('music-icon');
+      let isPlaying = false;
+
+      const speakerSVG = `<svg id="icon-speaker" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20" style="vertical-align:middle; display:block; margin:auto;"><path d="M9 7H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4l5 4V3l-5 4z"/></svg>`;
+      const pauseSVG = `<svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 20 20" style="vertical-align:middle; display:block; margin:auto;"><rect x="4" y="4" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="12" rx="1"/></svg>`;
+
+      function setMusicState(state) {
+        localStorage.setItem('music-playing', state ? '1' : '0');
+      }
+      function getMusicState() {
+        return localStorage.getItem('music-playing') === '1';
+      }
+      function setMusicTime(time) {
+        localStorage.setItem('music-time', time);
+      }
+      function getMusicTime() {
+        return parseFloat(localStorage.getItem('music-time') || '0');
+      }
+
+      // Restore music state and time on load
+      if (getMusicState()) {
+        const savedTime = getMusicTime();
+        if (!isNaN(savedTime) && savedTime > 0) {
+          musicAudio.currentTime = savedTime;
+        }
+        musicAudio.play().catch(() => {});
+      }
+
+      // Set initial icon based on play state
+      if (getMusicState()) {
+        musicIcon.innerHTML = pauseSVG;
+      } else {
+        musicIcon.innerHTML = speakerSVG;
+      }
+
+      musicToggle.addEventListener('click', function() {
+        if (isPlaying) {
+          musicAudio.pause();
+        } else {
+          musicAudio.play();
+        }
+      });
+
+      musicAudio.addEventListener('play', function() {
+        isPlaying = true;
+        musicIcon.innerHTML = pauseSVG;
+        musicToggle.setAttribute('aria-label', 'Pause music');
+        setMusicState(true);
+      });
+
+      musicAudio.addEventListener('pause', function() {
+        isPlaying = false;
+        musicIcon.innerHTML = speakerSVG;
+        musicToggle.setAttribute('aria-label', 'Play music');
+        setMusicState(false);
+        setMusicTime(musicAudio.currentTime);
+      });
+
+      // Save time on page unload
+      window.addEventListener('beforeunload', function() {
+        setMusicTime(musicAudio.currentTime);
+      });
+
+      window.addEventListener('blur', () => {
+        if (!musicAudio.paused) musicAudio.pause();
+        setMusicTime(musicAudio.currentTime);
+      });
+    });
+  </script>
+</body>
+</html>
